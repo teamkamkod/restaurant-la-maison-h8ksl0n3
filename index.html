@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant La Maison – Estaires | Cuisine conviviale et savoureuse</title>
+<meta name="description" content="Restaurant La Maison à Estaires : accueil chaleureux, plats de qualité et prix doux. Ouvert du lundi au samedi. Réservez au +33328403452.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #B85C38;
+    --secondary: #6B7F4A;
+    --background: #FDF6EC;
+    --text: #3D2B1F;
+    --cta: #C1440E;
+    --font-heading: 'DM Serif Display', serif;
+    --font-body: 'Jost', sans-serif;
+    --radius: 12px;
+    --shadow-soft: 0 8px 32px rgba(61,43,31,0.10), 0 2px 8px rgba(61,43,31,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(253,246,236,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,92,56,0.12);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--primary);
+    letter-spacing: 0.01em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(253,246,236,0.98);
+    border-bottom: 2px solid rgba(184,92,56,0.15);
+    padding: 1rem 0;
+    gap: 0;
+  }
+
+  nav ul.open {
+    display: flex;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  nav ul li a:hover { color: var(--primary); }
+
+  .nav-cta-wrap { display: none; }
+
+  .burger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 768px) {
+    nav { padding: 0 2.5rem; }
+
+    .burger { display: none; }
+
+    nav ul {
+      display: flex !important;
+      flex-direction: row;
+      position: static;
+      background: none;
+      border: none;
+      padding: 0;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    nav ul li a {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-cta-wrap { display: block; }
+
+    .nav-cta-wrap a {
+      background: var(--cta);
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta-wrap a:hover { background: var(--primary); transform: translateY(-1px); }
+  }
+
+  /* ===== CTA BUTTON ===== */
+  .cta {
+    display: inline-block;
+    background: var(--cta);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(193,68,14,0.25);
+    letter-spacing: 0.02em;
+  }
+
+  .cta:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(193,68,14,0.3);
+  }
+
+  .cta-secondary {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .cta-secondary:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+  }
+
+  /* ===== SECTIONS GENERAL ===== */
+  section { padding: 5rem 1.5rem; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    opacity: 0.85;
+    max-width: 680px;
+    margin-bottom: 2rem;
+  }
+
+  /* ===== HERO ===== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(61,43,31,0.62) 0%, rgba(61,43,31,0.45) 60%, rgba(107,127,74,0.3) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+    padding-top: 64px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 16px rgba(61,43,31,0.4);
+  }
+
+  .hero-content .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .hero-content .hero-text {
+    font-size: 0.98rem;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 2.5rem;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  @media (min-width: 480px) {
+    .hero-btns { flex-direction: row; justify-content: center; }
+  }
+
+  /* ===== ABOUT ===== */
+  #apropos {
+    background: #fff;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: visible;
+  }
+
+  .about-img-wrap img {
+    border-radius: var(--radius);
+    width: 100%;
+    object-fit: cover;
+    max-height: 420px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* corner_frame decoration */
+  .corner-frame {
+    position: relative;
+  }
+
+  .corner-frame::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 60px;
+    height: 60px;
+    border-top: 3px solid var(--primary);
+    border-left: 3px solid var(--primary);
+    border-radius: 4px 0 0 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .corner-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 60px;
+    height: 60px;
+    border-bottom: 3px solid var(--secondary);
+    border-right: 3px solid var(--secondary);
+    border-radius: 0 0 4px 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .about-text h2 { color: var(--primary); margin-bottom: 1.25rem; font-size: clamp(1.8rem, 3.5vw, 2.5rem); }
+
+  .about-text p { font-size: 1.05rem; opacity: 0.88; margin-bottom: 1.5rem; }
+
+  .about-address {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--secondary);
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  .about-address svg { flex-shrink: 0; margin-top: 2px; }
+
+  @media (min-width: 768px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ===== FEATURED MENU ===== */
+  #specialites { background: var(--background); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .menu-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .menu-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: visible;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(61,43,31,0.13);
+  }
+
+  .menu-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+  }
+
+  .menu-card p {
+    font-size: 0.97rem;
+    opacity: 0.82;
+  }
+
+  /* ===== REVIEWS ===== */
+  #avis { background: #fff; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .review-card {
+    background: var(--background);
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem 1.75rem;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    transition: transform 0.25s;
+  }
+
+  .review-card:hover { transform: translateY(-3px); }
+
+  /* big_quote style */
+  .review-card::before {
+    content: '\201C';
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: var(--primary);
+    opacity: 0.18;
+    position: absolute;
+    top: -0.5rem;
+    left: 1.25rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .star { color: #F5A623; font-size: 1.1rem; }
+
+  .review-text {
+    font-size: 0.97rem;
+    opacity: 0.88;
+    margin-bottom: 1.25rem;
+    white-space: pre-line;
+    position: relative;
+    z-index: 1;
+  }
+
+  .review-author {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--primary);
+  }
+
+  .review-date {
+    font-size: 0.82rem;
+    opacity: 0.6;
+    margin-top: 0.2rem;
+  }
+
+  /* ===== GALLERY CAROUSEL ===== */
+  #galerie { background: var(--background); overflow: hidden; }
+
+  .carousel-wrap {
+    position: relative;
+    margin-top: 2.5rem;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .carousel-item {
+    flex: 0 0 85vw;
+    max-width: 520px;
+    scroll-snap-align: start;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .carousel-item.corner-frame::before {
+    top: -10px; left: -10px;
+    width: 48px; height: 48px;
+  }
+
+  .carousel-item.corner-frame::after {
+    bottom: -10px; right: -10px;
+    width: 48px; height: 48px;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+
+  .carousel-item:hover img { transform: scale(1.03); }
+
+  .carousel-controls {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(184,92,56,0.25);
+  }
+
+  .carousel-btn:hover { background: var(--cta); transform: scale(1.08); }
+
+  @media (min-width: 768px) {
+    .carousel-item { flex: 0 0 45%; }
+    .carousel-item img { height: 340px; }
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-item { flex: 0 0 38%; }
+    .carousel-item img { height: 380px; }
+  }
+
+  /* ===== HOURS & LOCATION ===== */
+  #horaires { background: #fff; }
+
+  .hours-location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .hours-location-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hours-table-wrap h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+  }
+
+  table.hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.97rem;
+  }
+
+  .hours-table tr {
+    border-bottom: 1px solid rgba(184,92,56,0.1);
+  }
+
+  .hours-table tr:last-child { border-bottom: none; }
+
+  .hours-table td {
+    padding: 0.65rem 0.5rem;
+    vertical-align: top;
+  }
+
+  .hours-table td:first-child {
+    font-weight: 600;
+    color: var(--primary);
+    width: 42%;
+    text-transform: capitalize;
+  }
+
+  .hours-table td:last-child {
+    color: var(--text);
+    opacity: 0.85;
+  }
+
+  .hours-closed { color: var(--secondary) !important; font-style: italic; }
+
+  .contact-info-block {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.97rem;
+  }
+
+  .contact-info-item svg { color: var(--primary); flex-shrink: 0; }
+
+  .map-wrap {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    height: 320px;
+  }
+
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ===== CONTACT FORM ===== */
+  #contact { background: var(--background); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr 1.4fr; align-items: start; }
+  }
+
+  .contact-info h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .contact-info p { font-size: 0.97rem; opacity: 0.85; margin-bottom: 1.5rem; }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.97rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .contact-detail svg { color: var(--primary); }
+
+  form {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid rgba(184,92,56,0.2);
+    border-radius: calc(var(--radius) - 4px);
+    background: var(--background);
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(184,92,56,0.1);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  form .cta { width: 100%; text-align: center; }
+
+  /* ===== TRUST SIGNALS ===== */
+  #confiance { background: var(--primary); }
+
+  #confiance .section-heading { color: #fff; }
+  #confiance .section-label { color: rgba(255,255,255,0.7); }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .trust-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .trust-card:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-3px);
+  }
+
+  .trust-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+  .trust-card h4 {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+  }
+
+  .trust-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.85);
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner { grid-template-columns: 1.5fr 1fr 1fr; }
+  }
+
+  .footer-brand h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand p { font-size: 0.9rem; opacity: 0.75; line-height: 1.7; }
+
+  .footer-col h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .footer-col ul li a {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .footer-col ul li a:hover { opacity: 1; }
+
+  .footer-col p { font-size: 0.9rem; opacity: 0.75; line-height: 1.7; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.55;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    margin: 0 auto 2rem;
+  }
+
+  .divider-left { margin: 0 0 2rem; }
+
+  /* ===== RATING BADGE ===== */
+  .rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 0.4rem 1rem;
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .rating-badge .stars { color: #F5A623; }
+
+/* ── GARDE-FOU NAV (post-traitement deterministe, pas le LLM) ────────────────
+   Le modele produit typiquement `nav ul.open { flex-direction:column }` SANS
+   media query. Sa specificite (0,2,1) bat la regle desktop `nav ul` (0,0,2)
+   quand celle-ci n'a pas !important sur flex-direction : au retour en desktop
+   apres ouverture du burger, le menu reste empile en colonne (menu casse).
+   Cette regle force l'etat desktop quel que soit l'etat de .open. */
+@media (min-width: 768px) {
+  nav ul, nav ul.open, nav.open ul, nav ul[data-open="true"] {
+    flex-direction: row !important;
+    position: static !important;
+    display: flex !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: auto !important;
+  }
+  .burger, button.burger, .nav-toggle, #burger, .burger-menu { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Navigation principale">
+  <a href="#hero" class="nav-logo">La Maison</a>
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu" role="list">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#specialites">Spécialités</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#horaires">Horaires</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta-wrap">
+    <a href="tel:+33328403452" class="cta" aria-label="Réserver votre table par téléphone">Réservez votre table</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Accueil">
+  <div class="hero-bg" role="img" aria-label="Ambiance chaleureuse du Restaurant La Maison à Estaires"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Restaurant à Estaires</div>
+    <div class="rating-badge">
+      <span class="stars">★★★★★</span>
+      <span>5,0 sur 100 avis</span>
+    </div>
+    <h1>Restaurant La Maison</h1>
+    <p class="hero-sub">Une adresse chaleureuse à Estaires, où l'on se régale et l'on revient avec plaisir.</p>
+    <p class="hero-text">Situé au 80 Rue du Président Kennedy à Estaires, le Restaurant La Maison vous accueille dans une ambiance conviviale. Notre équipe sympathique vous sert des plats de qualité, absolument délicieux, pour un prix tout doux.</p>
+    <div class="hero-btns">
+      <a href="tel:+33328403452" class="cta" aria-label="Réserver votre table par téléphone">Réservez votre table</a>
+      <a href="#specialites" class="cta-secondary" aria-label="Découvrir nos spécialités">Découvrez notre carte</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="apropos" aria-label="À propos du Restaurant La Maison">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap corner-frame fade-in">
+        <img src="assets/gallery-1.jpg" alt="Intérieur chaleureux du Restaurant La Maison à Estaires" loading="lazy">
+      </div>
+      <div class="about-text fade-in">
+        <span class="section-label">Notre histoire</span>
+        <h2>Bienvenue chez nous</h2>
+        <div class="divider divider-left"></div>
+        <p>Au Restaurant La Maison, nous mettons tout en œuvre pour que chaque visite soit un moment agréable. Notre équipe vous réserve un excellent accueil et un service très agréable, dans une atmosphère chaleureuse et authentique.</p>
+        <p>Nos plats sont préparés avec soin pour vous offrir une cuisine de qualité, généreuse et savoureuse. Que ce soit pour un déjeuner rapide ou un dîner en famille ou entre amis, nous serons ravis de vous recevoir.</p>
+        <div class="about-address">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>80 Rue du Président Kennedy, 59940 Estaires, France</span>
+        </div>
+        <br>
+        <a href="tel:+33328403452" class="cta" aria-label="Réserver votre table par téléphone">Réservez votre table</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED MENU -->
+<section id="specialites" aria-label="Nos spécialités">
+  <div class="section-inner">
+    <div style="text-align:center;" class="fade-in">
+      <span class="section-label">À la carte</span>
+      <h2 class="section-heading">Nos spécialités</h2>
+      <div class="divider"></div>
+      <p class="section-text" style="margin:0 auto 0;">Découvrez nos plats qui font notre réputation, notamment notre Welsh parfait et notre sauce au maroilles incroyable. Une cuisine généreuse et pleine de saveurs, à savourer sur place.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card fade-in" aria-label="Spécialité Welsh">
+        <div class="menu-card-icon" aria-hidden="true">🍽️</div>
+        <h3>Welsh</h3>
+        <p>Un Welsh parfait, généreux et réconfortant. Notre spécialité incontournable, préparée avec soin pour vous offrir un moment de pur plaisir.</p>
+      </div>
+      <div class="menu-card fade-in" aria-label="Spécialité Sauce au maroilles">
+        <div class="menu-card-icon" aria-hidden="true">🧀</div>
+        <h3>Sauce au maroilles</h3>
+        <p>Une sauce au maroilles incroyable, à ne pas manquer. Un accord parfait entre tradition régionale et générosité dans l'assiette.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+      <a href="tel:+33328403452" class="cta" aria-label="Réserver votre table pour découvrir nos spécialités">Réservez votre table</a>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section id="avis" aria-label="Avis de nos clients">
+  <div class="section-inner">
+    <div style="text-align:center;" class="fade-in">
+      <span class="section-label">Témoignages</span>
+      <h2 class="section-heading">Ce que disent nos clients</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="reviews-grid">
+
+      <article class="review-card fade-in" aria-label="Avis de Sab C">
+        <div class="review-stars" aria-label="Note : 5 étoiles sur 5">
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="review-text">« Excellent accueil, service très agréable et une équipe vraiment sympathique ! Les plats sont de qualité et absolument délicieux, le tout pour un prix tout doux.
+Un grand bravo à toute l'équipe pour ce beau travail ! Nous reviendrons avec grand plaisir. 👏😊 »</p>
+        <div class="review-author">Sab C</div>
+        <div class="review-date">il y a moins d'une semaine</div>
+      </article>
+
+      <article class="review-card fade-in" aria-label="Avis de Olivia Gay">
+        <div class="review-stars" aria-label="Note : 5 étoiles sur 5">
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="review-text">« Juste délicieux, nous sommes venus plusieurs fois et toujours aussi satisfait.
+Welsh parfait et je ne parle même pas de la sauce au maroilles incroyaaaaable ! »</p>
+        <div class="review-author">Olivia Gay</div>
+        <div class="review-date">il y a moins d'une semaine</div>
+      </article>
+
+      <article class="review-card fade-in" aria-label="Avis de Florence Jacquot">
+        <div class="review-stars" aria-label="Note : 5 étoiles sur 5">
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+          <span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="review-text">« Parfait !!!!
+Accueil chaleureux, repas excellent.
+Je recommande vivement !!!!
+Très bonne adresse.
+Bravo 👏 »</p>
+        <div class="review-author">Florence Jacquot</div>
+        <div class="review-date">il y a une semaine</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW (carousel) -->
+<section id="galerie" aria-label="Galerie photos du Restaurant La Maison">
+  <div class="section-inner">
+    <div style="text-align:center;" class="fade-in">
+      <span class="section-label">En images</span>
+      <h2 class="section-heading">Notre galerie</h2>
+      <div class="divider"></div>
+      <p class="section-text" style="margin:0 auto 2rem;">Découvrez l'ambiance du Restaurant La Maison à travers quelques photos. Une invitation à venir nous rendre visite à Estaires.</p>
+    </div>
+    <div class="carousel-wrap fade-in">
+      <div class="carousel-track" id="carouselTrack" role="list" aria-label="Carrousel de photos du restaurant">
+        <div class="carousel-item corner-frame" role="listitem">
+          <img src="assets/hero.jpg" alt="Ambiance chaleureuse du Restaurant La Maison" loading="lazy">
+        </div>
+        <div class="carousel-item corner-frame" role="listitem">
+          <img src="assets/gallery-1.jpg" alt="Plats généreux et savoureux du Restaurant La Maison" loading="lazy">
+        </div>
+        <div class="carousel-item corner-frame" role="listitem">
+          <img src="assets/gallery-2.jpg" alt="Salle conviviale du Restaurant La Maison à Estaires" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls" aria-label="Contrôles du carrousel">
+      <button class="carousel-btn" id="prevBtn" aria-label="Image précédente">&#8592;</button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Image suivante">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & LOCATION -->
+<section id="horaires" aria-label="Horaires et adresse du Restaurant La Maison">
+  <div class="section-inner">
+    <div class="fade-in">
+      <span class="section-label">Informations pratiques</span>
+      <h2 class="section-heading">Horaires &amp; Adresse</h2>
+      <div class="divider divider-left"></div>
+    </div>
+    <div class="hours-location-grid">
+      <div class="hours-table-wrap fade-in">
+        <h3>Nos horaires d'ouverture</h3>
+        <table class="hours-table" aria-label="Tableau des horaires d'ouverture">
+          <tbody>
+            <tr>
+              <td>Lundi</td>
+              <td>11h45 – 14h00</td>
+            </tr>
+            <tr>
+              <td>Mardi</td>
+              <td>11h45 – 14h00</td>
+            </tr>
+            <tr>
+              <td>Mercredi</td>
+              <td>11h45 – 14h00</td>
+            </tr>
+            <tr>
+              <td>Jeudi</td>
+              <td>11h45 – 14h00</td>
+            </tr>
+            <tr>
+              <td>Vendredi</td>
+              <td>11h45 – 14h00, 19h00 – 22h00</td>
+            </tr>
+            <tr>
+              <td>Samedi</td>
+              <td>11h45 – 14h00, 19h00 – 22h00</td>
+            </tr>
+            <tr>
+              <td>Dimanche</td>
+              <td class="hours-closed">Fermé</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="contact-info-block">
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>80 Rue du Président Kennedy, 59940 Estaires, France</span>
+          </div>
+          <div class="contact-info-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+33328403452" style="color:var(--primary); font-weight:600;">+33 3 28 40 34 52</a>
+          </div>
+        </div>
+        <br>
+        <a href="tel:+33328403452" class="cta" aria-label="Réserver votre table par téléphone">Réservez votre table</a>
+      </div>
+      <div class="map-wrap fade-in" aria-label="Carte Google Maps du Restaurant La Maison à Estaires">
+        <iframe
+          src="https://www.google.com/maps?q=80+Rue+du+Président+Kennedy,+59940+Estaires,+France&output=embed"
+          title="Carte Google Maps – Restaurant La Maison, 80 Rue du Président Kennedy, 59940 Estaires"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          aria-label="Localisation du Restaurant La Maison sur Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" aria-label="Formulaire de contact du Restaurant La Maison">
+  <div class="section-inner">
+    <div style="text-align:center;" class="fade-in">
+      <span class="section-label">Écrivez-nous</span>
+      <h2 class="section-heading">Contactez-nous</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <h3>Nous sommes à votre écoute</h3>
+        <p>Pour toute réservation ou demande d'information, n'hésitez pas à nous contacter par téléphone ou par email. Nous vous répondrons avec plaisir.</p>
+        <div class="contact-detail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+33328403452" style="color:var(--primary);">+33 3 28 40 34 52</a>
+        </div>
+        <div class="contact-detail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:lamaisonestaires@sfr.fr" style="color:var(--primary);">lamaisonestaires@sfr.fr</a>
+        </div>
+        <div class="contact-detail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>80 Rue du Président Kennedy, 59940 Estaires</span>
+        </div>
+      </div>
+      <div class="fade-in">
+        <form action="https://checkout.kamkod.com/contact" method="POST" aria-label="Formulaire de contact">
+          <input type="hidden" name="lead_id" value="ChIJ-8ksl0Qn3UcR2b4iVya1300">
+          <div class="form-group">
+            <label for="name">Votre nom</label>
+            <input type="text" id="name" name="name" placeholder="Prénom et nom" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email">Votre adresse email</label>
+            <input type="email" id="email" name="email" placeholder="exemple@email.fr" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" placeholder="Votre demande de réservation ou question..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="cta" aria-label="Envoyer votre message">Envoyer un message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section id="confiance" aria-label="Pourquoi choisir le Restaurant La Maison">
+  <div class="section-inner">
+    <div style="text-align:center;" class="fade-in">
+      <span class="section-label">Nos engagements</span>
+      <h2 class="section-heading">Pourquoi nous choisir</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card fade-in">
+        <div class="trust-icon" aria-hidden="true">⭐</div>
+        <h4>Note de 5,0 sur 100 avis</h4>
+        <p>Nos clients nous attribuent une note parfaite de 5,0 sur 100 avis.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-icon" aria-hidden="true">🤝</div>
+        <h4>Accueil chaleureux</h4>
+        <p>Une équipe sympathique et un service très agréable.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-icon" aria-hidden="true">🍽️</div>
+        <h4>Plats de qualité</h4>
+        <p>Des plats absolument délicieux, préparés avec soin.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-icon" aria-hidden="true">💶</div>
+        <h4>Prix tout doux</h4>
+        <p>Un excellent rapport qualité-prix pour vous régaler.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+      <a href="tel:+33328403452" class="cta" style="background:#fff; color:var(--cta);" aria-label="Réserver votre table par téléphone">Réservez votre table</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer aria-label="Pied de page du Restaurant La Maison">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Restaurant La Maison</h3>
+      <p>Restaurant La Maison – 80 Rue du Président Kennedy, 59940 Estaires, France. Téléphone : +33328403452. Email : lamaisonestaires@sfr.fr.</p>
+      <br>
+      <p>Ouvert du lundi au samedi. Dimanche fermé.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#specialites">Spécialités</a></li>
+        <li><a href="#avis">Avis clients</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>
+        80 Rue du Président Kennedy<br>
+        59940 Estaires, France<br><br>
+        <a href="tel:+33328403452" style="color:rgba(255,255,255,0.85);">+33 3 28 40 34 52</a><br>
+        <a href="mailto:lamaisonestaires@sfr.fr" style="color:rgba(255,255,255,0.85);">lamaisonestaires@sfr.fr</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Restaurant La Maison. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+
+  burger.addEventListener('click', function() {
+    const isOpen = navMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  navMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navMenu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ===== CAROUSEL =====
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  function getScrollAmount() {
+    const item = track.querySelector('.carousel-item');
+    if (!item) return 300;
+    return item.offsetWidth + 20;
+  }
+
+  nextBtn.addEventListener('click', function() {
+    track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', function() {
+    track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+  });
+
+  // ===== FADE-IN ANIMATIONS =====
+  const fadeEls = document.querySelectorAll('.fade-in');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(function(el) {
+      observer.observe(el);
+    });
+  } else {
+    fadeEls.forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+</script>
+<!-- KAMKOD:DEMO_START -->
+<script>
+(function(){
+  var URL = 'https://checkout.kamkod.com/d/ChIJ-8ksl0Qn3UcR2b4iVya1300';
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('a, button, [role="button"]');
+    if(!el || el.closest('form')) return;               /* formulaire -> endpoint contact */
+    if(el.classList.contains('cta')) { e.preventDefault(); window.location.href = URL; return; }
+    if(el.closest('header nav, nav')) return;           /* navigation interne de la démo */
+    var a = e.target.closest('a');
+    if(!a) return;                                      /* bouton seul hors nav: on laisse */
+    var href = a.getAttribute('href') || '';
+    if(href.charAt(0) === '#') return;                  /* ancres de section */
+    if(/^https?:|^\/\//i.test(href)) return;
+    e.preventDefault(); window.location.href = URL;     /* tel:, mailto:, javascript:… */
+  }, true);
+})();
+</script>
+<div id="kamkod-demo-banner" data-pid="ChIJ-8ksl0Qn3UcR2b4iVya1300" data-echeance="1789910977432"
+     style="position:fixed;bottom:0;left:0;right:0;background:#111;color:#fff;z-index:9999;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;box-shadow:0 -2px 14px rgba(0,0,0,.4);">
+  <div style="max-width:920px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <span style="flex:1;min-width:200px;font-size:13px;opacity:.8;">Aperçu de votre futur site</span>
+    <span id="kk-offre" style="font-size:14px;font-variant-numeric:tabular-nums;">Prix de lancement : <b>49,00 €</b> — encore 47h 59min 59s</span>
+    <a href="https://checkout.kamkod.com/d/ChIJ-8ksl0Qn3UcR2b4iVya1300" style="background:#EA580C;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;">Activer mon site</a>
+  </div>
+</div>
+<script>
+/* COMPTE À REBOURS DE LA BANNIÈRE (demande Alex 11/09) : le prospect passe le plus
+   de temps SUR SON SITE — l'urgence doit être ici, pas seulement sur la page de
+   vente après un clic de plus. Même mécanique que la page : fenêtre 48 h, prix de
+   lancement, et le prix plein annoncé une fois la fenêtre passée.
+   L'échéance est EMBARQUÉE à l'injection (aucune dépendance réseau) puis
+   resynchronisée depuis /api/offre toutes les 2 min (une réinitialisation de
+   fenêtre doit se propager à un site déjà déployé). */
+(function(){
+  var b = document.getElementById('kamkod-demo-banner');
+  if(!b) return;
+  var ach = parseInt(b.getAttribute('data-echeance') || '0', 10);
+  var pid = b.getAttribute('data-pid');
+  var el  = document.getElementById('kk-offre');
+  if(!el) return;
+  var T_LAUNCH = "Prix de lancement : <b>%PRIX%</b> — encore %TEMPS%";
+  var T_OVER   = "Le déploiement est passé à <b>%PRIX%</b>";
+  var PRIX_L   = "49,00 €";
+  var PRIX_O   = "98,00 €";
+  function deux(n){ return (n < 10 ? '0' : '') + n; }
+  function hms(s){
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    return h + 'h ' + deux(m) + 'min ' + deux(x) + 's';
+  }
+  function rendu(){
+    var s = ach ? Math.floor((ach - Date.now()) / 1000) : 0;
+    if(s > 0){
+      el.innerHTML = T_LAUNCH.replace('%TEMPS%', hms(s)).replace('%PRIX%', PRIX_L);
+    } else {
+      el.innerHTML = T_OVER.replace('%PRIX%', PRIX_O);
+    }
+  }
+  rendu();
+  setInterval(rendu, 1000);
+  function sync(){
+    try{
+      fetch('https://checkout.kamkod.com/api/offre/' + pid, {cache:'no-store'})
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(d && d.echeance_ms){ ach = d.echeance_ms; }
+          if(d && d.prix_lancement){ PRIX_L = d.prix_lancement; }
+          if(d && d.prix_apres){ PRIX_O = d.prix_apres; }
+          rendu();
+        })
+        .catch(function(){});
+    }catch(e){}
+  }
+  setTimeout(sync, 5000);
+  setInterval(sync, 120000);
+})();
+</script>
+<script>
+/* KAMKOD-MESURE v1 — page="site" | mesure agrégée : aucun cookie, aucun identifiant. */
+(function(){
+  try{
+    var PID="ChIJ-8ksl0Qn3UcR2b4iVya1300", PAGE="site";
+    var URL="https://checkout.kamkod.com/api/comportement/"+PID;
+    var vis=0, lastIn=Date.now(), scrollMax=0, clics=0, cta=0, premier=1, vues={};
+    var mobile=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent||'');
+    function cache(){ return document.visibilityState==='hidden'; }
+    function temps(){ var n=Date.now(); if(!cache() && lastIn){ vis+=n-lastIn; } lastIn=n; }
+    function majScroll(){
+      var h=Math.max(1,(document.documentElement.scrollHeight||0)-window.innerHeight);
+      var p=Math.round(Math.min(100,((window.pageYOffset||window.scrollY||0)/h)*100));
+      if(p>scrollMax){ scrollMax=p; }
+    }
+    function majSections(){
+      var hs=document.querySelectorAll('h1,h2,h3');
+      for(var i=0;i<hs.length && i<40;i++){
+        var r=hs[i].getBoundingClientRect();
+        if(r.top<window.innerHeight && r.bottom>0){
+          var t=(hs[i].textContent||'').replace(/\s+/g,' ').trim().slice(0,60);
+          if(t){ vues[t]=(vues[t]||0)+1; }
+        }
+      }
+    }
+    function estCta(el){ var a=null,n=el;while(n&&n.tagName!=='A'){n=n.parentNode;}
+      a=n;if(!a||!a.getAttribute)return false;
+      var h=a.getAttribute('href')||'';
+      return h.indexOf('/d/')>-1||h.indexOf('checkout.kamkod.com')>-1; }
+    function envoi(force){
+      try{
+        temps();
+        var secs=Object.keys(vues);
+        if(!force && !secs.length && !vis && !clics && !scrollMax){ return; }
+        var corps=JSON.stringify({v:1, page:PAGE, debut:premier?1:0, temps_ms:Math.round(vis),
+          scroll_max:scrollMax, clics:clics, cta_clics:cta, mobile:mobile, sections:secs});
+        var ok=false;
+        try{
+          if(navigator.sendBeacon){ ok=navigator.sendBeacon(URL, corps); }
+          if(!ok){
+            var x=new XMLHttpRequest();
+            x.open('POST',URL,true);
+            x.setRequestHeader('Content-Type','text/plain;charset=UTF-8');
+            x.send(corps); ok=true;
+          }
+        }catch(e){}
+        if(ok){ premier=0; vis=0; clics=0; cta=0; vues={}; }
+      }catch(e){}
+    }
+    window.addEventListener('scroll',function(){try{majScroll();majSections();}catch(e){}},{passive:true});
+    document.addEventListener('click',function(ev){
+      try{ clics++; if(estCta(ev.target)){ cta++; } }catch(e){}
+    },true);
+    document.addEventListener('visibilitychange',function(){
+      try{ if(cache()){ envoi(false); } else { lastIn=Date.now(); } }catch(e){}
+    });
+    window.addEventListener('pagehide',function(){try{envoi(true);}catch(e){}});
+    setTimeout(function(){try{majScroll();majSections();envoi(false);}catch(e){}},3000);
+    setInterval(function(){try{majSections();envoi(false);}catch(e){}},30000);
+  }catch(e){}
+})();
+</script>
+<!-- KAMKOD:DEMO_END -->
+</body>
+</html>
